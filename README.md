@@ -1,7 +1,9 @@
 # gen-art
-artwork made with algo patterns etc
+generative artwork made with golang and image package.
 
 
-# see gallery 
+# gallery
+
+[square-blend](./cmd/square-blend.go)  
 
 ![square-blend](./gallery/square-blend.png)
