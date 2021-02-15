@@ -4,7 +4,6 @@ import (
 	"image"
 	"image/color"
 	"math/rand"
-	"time"
 
 	gen "github.com/guitar-slug/gen-art/pkg"
 )
@@ -14,8 +13,8 @@ func main() {
 	width := 700
 	height := 1000
 
-	//seed
-	rand.Seed(time.Now().UnixNano())
+	//gen.TimeBasedSeed()
+	rand.Seed(1613419965343466000)
 
 	img := image.NewRGBA(image.Rectangle{
 		image.Point{0, 0},

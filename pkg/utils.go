@@ -1,11 +1,13 @@
 package pkg
 
 import (
+	"fmt"
 	"image"
 	"image/color"
 	"image/png"
 	"math/rand"
 	"os"
+	"time"
 )
 
 func SetBackgroundColor(img *image.RGBA, col color.Color) {
@@ -30,4 +32,11 @@ func RandU8(min int) uint8 {
 
 func RandInt(min, max int) int {
 	return rand.Intn(max-min) + min
+}
+
+func TimeBasedSeed() {
+	seed := time.Now().UnixNano()
+	//print out seed in case you get a really nice img, and want to re-use the seed
+	fmt.Printf("using seed: %d \n", seed)
+	rand.Seed(seed)
 }
