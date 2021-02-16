@@ -1,8 +1,12 @@
 # gen-art
-generative artwork made with golang and image package.
+Generative artwork made with golang and image package.
 
 
 # gallery
+
+[lines](./cmd/lines.go)  
+
+![lines](./gallery/lines.png)
 
 [square-blend](./cmd/square-blend.go)  
 

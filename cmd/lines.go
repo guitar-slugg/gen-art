@@ -8,7 +8,7 @@ import (
 	gen "github.com/guitar-slug/gen-art/pkg"
 )
 
-func SquareBlend() {
+func Lines() {
 
 	width := 700
 	height := 1000
@@ -21,13 +21,9 @@ func SquareBlend() {
 		image.Point{width, height},
 	})
 
-	gen.SetBackgroundColor(img, color.RGBA{100, 250, 250, 250})
+	gen.SetBackgroundColor(img, color.RGBA{100, 100, 100, 250})
 
-	for i := 0; i < 50; i++ {
-
-		locX := gen.RandInt(0, width)
-		locY := gen.RandInt(0, height)
-		siz := gen.RandInt(1, 200)
+	for i := 0; i < 100; i++ {
 
 		col := color.RGBA{
 			gen.RandU8(0),
@@ -36,8 +32,18 @@ func SquareBlend() {
 			255,
 		}
 
-		gen.SquareBlend(img, image.Point{locX, locY}, siz, col)
+		locY := gen.RandInt(0, height)
+		locY2 := gen.RandInt(0, height)
+		siz := gen.RandInt(1, 10)
+
+		gen.Line(
+			img,
+			image.Point{-10, locY},
+			image.Point{width + 10, locY2},
+			siz,
+			col,
+		)
 	}
 
-	gen.WritePng("../gallery/square-blend.png", img)
+	gen.WritePng("../gallery/lines.png", img)
 }

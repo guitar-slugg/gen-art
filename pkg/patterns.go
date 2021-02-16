@@ -39,3 +39,30 @@ func SquareBlend(img *image.RGBA, a image.Point, siz int, col color.Color) {
 		}
 	}
 }
+
+func Line(img *image.RGBA, a, b image.Point, siz int, col color.Color) {
+
+	limX := img.Bounds().Size().X
+	limY := img.Bounds().Size().Y
+
+	//start from point a
+	dx := b.X - a.X
+	dy := b.Y - a.Y
+
+	for x := a.X; x < b.X; x++ {
+		y := a.Y + dy*(x-a.X)/dx
+
+		//fill in thickness
+		for i := 0; i < siz; i++ {
+			if x < limX && x > -1 && (y+i) < limY && (y+i) > -1 {
+				img.Set(x, y+i, col)
+			}
+		}
+		for i := 0; i < siz; i++ {
+			if x < limX && x > -1 && (y-i) < limY && (y-i) > -1 {
+				img.Set(x, y-i, col)
+			}
+		}
+	}
+
+}
