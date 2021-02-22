@@ -3,6 +3,7 @@ package pkg
 import (
 	"image"
 	"image/color"
+	"math"
 )
 
 func Square(img *image.RGBA, a image.Point, siz int, col color.Color) {
@@ -63,6 +64,76 @@ func Line(img *image.RGBA, a, b image.Point, siz int, col color.Color) {
 				img.Set(x, y-i, col)
 			}
 		}
+	}
+
+}
+
+func Circle(img *image.RGBA, pnt image.Point, radius, linewidth int, col color.Color) {
+	var i float64
+	radiusF := float64(radius)
+	for i = 0; i < 360; i += 0.1 {
+
+		angle := float64(i * math.Pi / 180)
+
+		x := pnt.X + int(radiusF*math.Cos(angle))
+		y := pnt.Y + int(radiusF*math.Sin(angle))
+
+		pp := image.Point{
+			X: x,
+			Y: y,
+		}
+
+		Square(img, pp, linewidth, col)
+	}
+}
+
+func Spiral(img *image.RGBA, pnt image.Point, radius, linewidth, iterations int, ramp float64, col color.Color) {
+	var i float64
+	radiusF := float64(radius)
+
+	for it := radius; it < radius+iterations; it++ {
+
+		for i = 0; i < 360; i += 0.1 {
+
+			radiusF += ramp
+			angle := float64(i * math.Pi / 180)
+
+			x := pnt.X + int(radiusF*math.Cos(angle))
+			y := pnt.Y + int(radiusF*math.Sin(angle))
+
+			pp := image.Point{
+				X: x,
+				Y: y,
+			}
+
+			Square(img, pp, linewidth, col)
+		}
+
+	}
+}
+
+func Concentric(img *image.RGBA, pnt image.Point, radius, linewidth, iters, spacing int, col color.Color) {
+	var i float64
+	radiusF := float64(radius)
+
+	for j := 0; j < iters; j++ {
+
+		for i = 0; i < 360; i += 0.1 {
+
+			angle := float64(i * math.Pi / 180)
+
+			x := pnt.X + int(radiusF*math.Cos(angle))
+			y := pnt.Y + int(radiusF*math.Sin(angle))
+
+			pp := image.Point{
+				X: x,
+				Y: y,
+			}
+
+			Square(img, pp, linewidth, col)
+		}
+
+		radiusF += float64(spacing)
 	}
 
 }
