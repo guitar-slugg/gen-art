@@ -52,4 +52,19 @@ func InfPattern() {
 
 	gen.WritePng("../gallery/inf-pattern.png", img)
 
+	for i := 0; i < 10; i++ {
+
+		locX1 := gen.RandInt(0, width)
+		locY1 := gen.RandInt(0, height)
+		locX2 := gen.RandInt(0, width)
+		locY2 := gen.RandInt(0, height)
+
+		siz := gen.RandInt(50, 80)
+
+		gen.TranslateBox(img, image.Point{X: locX1, Y: locY1}, image.Point{X: locX2, Y: locY2}, siz)
+
+	}
+
+	gen.WritePng("../gallery/inf-pattern-trans.png", img)
+
 }

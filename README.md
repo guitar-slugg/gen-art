@@ -8,11 +8,11 @@ Generative artwork made with golang and image package.
 
 ![inf-pattern](./gallery/inf-pattern.png)
 
-[spiral](./cmd/spiral.go)  
-
-![spiral](./gallery/spiral.png)
-
 [lines](./cmd/lines.go)  
 
 ![lines](./gallery/lines.png)
+
+[circles2](./cmd/circles2.go)  
+
+![circles2](./gallery/circles2.png)
 
