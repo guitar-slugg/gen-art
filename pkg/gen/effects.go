@@ -1,4 +1,4 @@
-package pkg
+package gen
 
 import (
 	"image"
@@ -11,26 +11,6 @@ func TranslateBox(img *image.RGBA, pnt1, pnt2 image.Point, siz int) {
 			SwapColors(img, image.Point{X: pnt1.X + i, Y: pnt1.Y + j}, image.Point{X: pnt2.X + i, Y: pnt2.Y + j})
 		}
 	}
-}
-
-func Smudge(img *image.RGBA, pnt image.Point) {
-
-	//row above point
-	for i := pnt.X - 1; i < pnt.X+1; i++ {
-		Avg(img, pnt, image.Point{X: i, Y: pnt.Y - 1})
-	}
-
-	//row below point
-	for i := pnt.X - 1; i < pnt.X+1; i++ {
-		Avg(img, pnt, image.Point{X: i, Y: pnt.Y + 1})
-	}
-
-	//left of point
-	Avg(img, pnt, image.Point{X: pnt.X - 1, Y: pnt.Y})
-
-	//right of point
-	Avg(img, pnt, image.Point{X: pnt.X + 1, Y: pnt.Y})
-
 }
 
 func Avg(img *image.RGBA, pnt1, pnt2 image.Point) {

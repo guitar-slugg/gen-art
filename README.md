@@ -1,18 +1,20 @@
 # gen-art
 Generative artwork made with golang and image package.
 
+All image generation is pseudo-random application of patterns. 
+
 
 # gallery
 
-[inf-pattern](./cmd/InfPattern.go)  
+[example code](./cmd/main.go) 
 
 ![inf-pattern](./gallery/inf-pattern.png)
 
-[lines](./cmd/lines.go)  
-
 ![lines](./gallery/lines.png)
 
-[circles2](./cmd/circles2.go)  
+![circles](./gallery/circles.png)
 
-![circles2](./gallery/circles2.png)
+![rings](./gallery/rings.png)
+
+
 

@@ -1,4 +1,4 @@
-package pkg
+package gen
 
 import (
 	"image"
@@ -96,6 +96,7 @@ func Spiral(img *image.RGBA, pnt image.Point, radius, linewidth, iterations int,
 		for i = 0; i < 360; i += 0.1 {
 
 			radiusF += ramp
+
 			angle := float64(i * math.Pi / 180)
 
 			x := pnt.X + int(radiusF*math.Cos(angle))
